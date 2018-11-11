@@ -55,6 +55,6 @@ public class Forca {
             System.out.println("Palavra: " + palavraParcial);
         }
         JOptionPane.showMessageDialog(null, "Você Morreu!");
-        System.out.println("Voce morreu");
+        //System.out.println("Voce morreu");
     }
 }
