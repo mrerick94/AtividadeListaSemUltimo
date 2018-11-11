@@ -6,13 +6,9 @@
 package exercicio7;
 
 import bean.Lista;
-import bean.ListaCircular;
 import bean.ListaCircularSemUltimo;
-import bean.ListaDuplaEncadeada;
 import bean.ListaDuplaEncadeadaSemUltimo;
-import bean.ListaSimples;
 import bean.ListaSimplesSemUltimo;
-import bean.Pilha;
 import bean.PilhaSemUltimo;
 import java.nio.file.Files;
 import java.io.File;
