@@ -52,7 +52,7 @@ public class Exercicio2 {
                 rand = new Random();
                 Integer senhaNPrioritariaRandom = rand.nextInt(999);
                 while (normal.existe(senhaNPrioritariaRandom) || prioritaria.existe(senhaNPrioritariaRandom)) {
-                    senhaNormalRandom = rand.nextInt(899) + 100;
+                    senhaNPrioritariaRandom = rand.nextInt(999);
                 }
                 prioritaria.adicionar(senhaNPrioritariaRandom);
                 System.out.println("---------------------------");
