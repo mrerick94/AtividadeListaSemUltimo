@@ -40,6 +40,11 @@ public class ListaDuplaEncadeadaSemUltimo<Object> implements Lista<Object> {
             throw new NullPointerException();
         }
         if (idx.equals(this.quantidade)) {
+            if (idx.equals(0)) {
+                this.primeiroElemento = new NoDuploEncadeado(o, null, null);
+                this.quantidade++;
+                return;
+            }
             NoDuploEncadeado ultimo = this.primeiroElemento;
             while (ultimo.getProximo() != null) {
                 ultimo = ultimo.getProximo();

@@ -39,15 +39,19 @@ public class Forca {
         System.out.println(palavraParcial);
         while (numTentativasErradas <= 5) {
             String chute = JOptionPane.showInputDialog("Digite uma letra à tentar na Forca:").toLowerCase();
-            if (palavraSorteada.contains(chute)) {
-                while (palavraSorteada.contains(chute)) {
-                    letrasCertas.adicionar(palavraSorteada.charAt(palavraSorteada.indexOf(chute)));
-                    palavraParcial.substituir(palavraSorteada.charAt(palavraSorteada.indexOf(chute)), palavraSorteada.indexOf(chute));
-                    palavraSorteada = palavraSorteada.replaceFirst(chute, "-");
+            if (!letrasCertas.existe(chute.charAt(0)) && !letrasErradas.existe(chute)) {
+                if (palavraSorteada.contains(chute)) {
+                    while (palavraSorteada.contains(chute)) {
+                        letrasCertas.adicionar(palavraSorteada.charAt(palavraSorteada.indexOf(chute)));
+                        palavraParcial.substituir(palavraSorteada.charAt(palavraSorteada.indexOf(chute)), palavraSorteada.indexOf(chute));
+                        palavraSorteada = palavraSorteada.replaceFirst(chute, "-");
+                    }
+                } else {
+                    letrasErradas.adicionar(chute);
+                    numTentativasErradas++;
                 }
             } else {
-                letrasErradas.adicionar(chute);
-                numTentativasErradas++;
+                System.err.println("Esta letra já foi tentada: " + chute);
             }
             System.out.println("---------------------------------------------------");
             System.out.println("Letras Erradas: " + letrasErradas);

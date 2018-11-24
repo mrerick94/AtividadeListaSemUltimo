@@ -26,14 +26,12 @@ public class ListaSimplesSemUltimo<Object> implements Lista<Object> {
             this.quantidade++;
             return;
         }
-        if (this.primeiroElemento instanceof NoSimples) {
-            NoSimples elemento = new NoSimples(o, null);
-            NoSimples auxiliar = this.primeiroElemento;
-            while (auxiliar.getProximo() != null) {
-                auxiliar = auxiliar.getProximo();
-            }
-            auxiliar.setProximo(elemento);
+        NoSimples elemento = new NoSimples(o, null);
+        NoSimples auxiliar = this.primeiroElemento;
+        while (auxiliar.getProximo() != null) {
+            auxiliar = auxiliar.getProximo();
         }
+        auxiliar.setProximo(elemento);
         this.quantidade++;
     }
 
@@ -43,6 +41,11 @@ public class ListaSimplesSemUltimo<Object> implements Lista<Object> {
             throw new NullPointerException();
         }
         if (idx.equals(this.quantidade)) {
+            if (idx.equals(0)) {
+                this.primeiroElemento = new NoSimples(o, null);
+                this.quantidade++;
+                return;
+            }
             this.adicionar(o);
             return;
         }
@@ -50,10 +53,7 @@ public class ListaSimplesSemUltimo<Object> implements Lista<Object> {
         NoSimples elementoAnterior = null;
         for (int i = 0; i < this.quantidade; i++) {
             if (idx.equals(i)) {
-                if (elemento == null) {
-                    this.adicionar(o);
-                    return;
-                } else if (elementoAnterior == null) {
+                if (elemento.equals(this.primeiroElemento)) {
                     NoSimples auxiliar = elemento;
                     NoSimples novoElemento = new NoSimples(o, auxiliar);
                     this.primeiroElemento = novoElemento;
@@ -220,7 +220,7 @@ public class ListaSimplesSemUltimo<Object> implements Lista<Object> {
         }
         return texto2;
     }
-    
+
     @Override
     public String toStringInverse() {
         String texto = "";
