@@ -175,7 +175,11 @@ public class ListaDuplaEncadeadaSemUltimo<Object> implements Lista<Object> {
                     this.quantidade--;
                     return true;
                 }
+                if (elemento.getProximo() == null) {
+                    elemento.getAnterior().setProximo(null);
+                }
                 elemento.getAnterior().setProximo(elemento.getProximo());
+                elemento.getProximo().setAnterior(elemento.getAnterior());
                 this.quantidade--;
                 return true;
             }

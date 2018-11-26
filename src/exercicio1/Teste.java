@@ -22,7 +22,7 @@ public class Teste {
         lista.adicionar("teste5", 0);
         lista.adicionar("teste6", 0);
         System.out.println(lista);
-        lista.remover(5);
+        lista.remover(0);
         System.out.println(lista);
         System.out.println("--------------------------------");
         ListaSimplesSemUltimo<String> lista2 = new ListaSimplesSemUltimo<String>();

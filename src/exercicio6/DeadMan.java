@@ -23,13 +23,18 @@ public class DeadMan {
         soldados.adicionar("Felipe");
         soldados.adicionar("Brenner");
         soldados.adicionar("Gabriel");
-        Integer i = soldados.tamanho();
+        Integer i = soldados.tamanho() - 1;
         while (soldados.tamanho() > 1) {
             Integer numSorteado = rand.nextInt(i);
+            System.out.println(numSorteado);
             System.out.println("Removido: " + soldados.buscar(numSorteado));
+            String string = soldados.buscar(numSorteado);
             soldados.remover(numSorteado);
+            System.out.println(soldados);
+            if (soldados.toString().contains(string)) {
+                System.out.println("--> " + soldados);
+            }
             i--;
-            Thread.sleep(1000);
         }
         System.out.println("À Morrer: " + soldados.buscar(0));
     }
